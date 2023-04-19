@@ -1,0 +1,114 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Text;
+
+using System.Threading.Tasks;
+
+namespace ЛР5.Информатика
+
+{
+
+    class Program
+
+    {
+        static void Main(string[] args)
+
+        {
+            int[] array = new int[100];
+            double[] array1 = new double[100];
+            Average(array);
+
+            AverageGeometric(array1);
+
+            QuadraticMean(array);
+
+            Console.ReadLine();
+
+        }
+
+        static void Average(int[] array)
+
+        {
+            int sum = 0;
+            Random rnd = new Random();
+            for (int i = 0; i < 100; i++)
+
+            {
+
+                array[i] = rnd.Next(0, 1000);
+
+                sum += array[i];
+
+                Console.Write("\t" + array[i]);
+
+            }
+
+            int average = sum / 100;
+
+            Console.WriteLine("\n" + $"Среднее арифметическое случайных чисел равно {average}" + "\n");
+
+        }
+
+        static void AverageGeometric(double[] array1)
+
+        {
+
+            Random rnd = new Random();
+
+            double product = 1;
+
+            double averageGeometric;
+
+            for (int i = 0; i < 100; i++)
+
+            {
+
+                array1[i] = rnd.Next(1, 100);
+
+                product *= array1[i];
+
+                Console.Write("\t" + array1[i]);
+
+            }
+
+            averageGeometric = Math.Pow(product, 1.0 / 100.0);
+
+            Console.WriteLine("\n" + $"Среднее геомметрическое случайных чисел равно {averageGeometric}" + "\n");
+
+        }
+
+        static void QuadraticMean(int[] array)
+
+        {
+
+            Random rnd = new Random();
+
+            double quadraSum = 0;
+
+            double averageQuadro;
+
+            for (int i = 0; i < 100; i++)
+
+            {
+
+                array[i] = rnd.Next(0, 1000);
+
+                quadraSum += Math.Pow(array[i], 2);
+
+                Console.Write("\t" + array[i]);
+
+            }
+
+            averageQuadro = Math.Sqrt(quadraSum / 100);
+
+            Console.WriteLine("\n" + $"Среднее квадратичное случайных чисел равно {averageQuadro}" + "\n");
+
+        }
+
+    }
+
+}
