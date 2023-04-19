@@ -1,0 +1,229 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Text;
+
+using System.Threading.Tasks;
+
+namespace ЛР3
+
+{
+
+    internal class Program
+
+    {
+
+        static void Main(string[] args)
+
+        {
+
+            Console.WriteLine("Введите число, факториал которого вы бы хотели узнать: " + "\n");
+
+            double x;
+
+            while (!double.TryParse(Console.ReadLine(), out x))
+
+            {
+
+                Console.WriteLine("\n" + "Вы ввели некорректные данные, повторите ввод: " + "\n");
+
+            }
+
+            
+
+            if (x < 0)
+
+            {
+                double y = 1;
+
+                while (x > 1)
+
+                {
+
+                    y *= x;
+
+                    x--;
+
+                }
+                Console.WriteLine("\n" + $"Факториал введенного числа равен {y}");
+                Console.WriteLine("\n" + "Факториала отрицательного числа не существует"+"\n");
+                Console.WriteLine("Нажмите enter, чтобы перейти к ряду Фибоначчи:" + "\n");
+                Console.ReadLine();
+            }
+
+            else
+
+            {
+
+                double y = 1;
+
+                while (x > 1)
+
+                {
+
+                    y *= x;
+
+                    x--;
+
+                }
+                Console.WriteLine("\n" + $"Факториал введенного числа равен {y}");
+                Console.WriteLine("Нажмите enter, чтобы перейти к ряду Фибоначчи:" + "\n");
+                Console.ReadLine();
+            }
+
+            
+            bool showMenu = true;
+
+            while (showMenu)
+
+            {
+
+                showMenu = MainMenu();
+
+            }
+
+        }
+
+        private static bool MainMenu()
+
+        {
+
+            Console.Clear();
+
+            Console.WriteLine("Значение какого по порядку элемента из ряда Фибоначчи вы бы хотели узнать?");
+
+            Console.WriteLine("0)");
+
+            Console.WriteLine("17)");
+
+            Console.WriteLine("84)");
+
+            Console.Write("\r\nВведите порядковый номер: ");
+
+            ulong g;
+
+            while (!ulong.TryParse(Console.ReadLine(), out g))
+
+            {
+
+                Console.WriteLine("\n" + "Вы ввели некорректные данные, повторите ввод: " + "\n");
+
+            }
+
+            switch (g)
+
+            {
+
+                case 0:
+
+                    Console.Clear();
+
+                    Console.WriteLine("Первый элемент ряда равен 0");
+
+                    Console.Write("\r\nНажмите enter, чтобы вернуться");
+
+                    Console.ReadLine();
+
+                    return true;
+
+                case 17:
+
+                    Console.Clear();
+
+                    Console.WriteLine("17 элемент ряда равен 1597");
+
+                    Console.Write("\r\nНажмите enter, чтобы вернуться");
+
+                    Console.ReadLine();
+
+                    return true;
+
+                case 84:
+
+                    Console.Clear();
+
+                    Console.WriteLine("84 элемент ряда равен 160500643816367088");
+
+                    Console.Write("\r\nНажмите enter, чтобы вернуться");
+
+                    Console.ReadLine();
+
+                    return true;
+
+                default:
+
+                    if (g > 84)
+
+                    {
+
+                        Console.Clear();
+
+                        Console.WriteLine($"Число {g} слишком велико и не охватывается типом данных, введите число до 84 включительно");
+
+                        Console.Write("\r\nНажмите enter, чтобы вернуться");
+
+                        Console.ReadLine();
+
+                    }
+
+                    else if (g < 0)
+
+                    {
+
+                        Console.Clear();
+
+                        Console.WriteLine("Программа рассматривает ряд Фибоначчи из положительных чисел и нуля");
+
+                        Console.Write("\r\nНажмите enter, чтобы вернуться");
+
+                        Console.ReadLine();
+
+                    }
+
+                    else
+                    {
+
+                        Console.Clear();
+
+                        ulong first = 1;
+
+                        ulong second = 1;
+
+                        ulong sum = 0;
+
+                        ulong j = 2;
+
+                        while (j <= g)
+
+                        {
+
+                            sum = first + second;
+
+                            first = second;
+
+                            second = sum;
+
+                            j++;
+
+                        }
+
+                        Console.WriteLine($"Под номером {g} в ряде Фибоначчи стоит число {first}");
+
+                        Console.Write("\r\nНажмите enter, чтобы вернуться");
+
+                        Console.ReadLine();
+
+                    }
+
+                    return true;
+
+            }
+
+        }
+
+    }
+
+}
