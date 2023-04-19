@@ -1,0 +1,285 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Text;
+
+using System.Threading.Tasks;
+
+using System.Xml;
+
+namespace Текстовый_квест
+
+{
+
+    internal class Program
+
+    {
+
+        static void Main(string[] args)
+        {
+            bool showMenu = true;
+
+            while (showMenu)
+
+            {
+
+                showMenu = MainMenu();
+
+            }
+        }
+        static bool MainMenu()
+
+        {
+            Console.Clear();
+            Console.WriteLine("Добрового времени суток, дорогой товарищ! Вашему вниманию представляется текстовый квест" + "\n");
+
+            Console.WriteLine("Для начала, выберите сложность в соответствии со своим полом: женщина - 1, мужчина - 2, линолеум - 3");
+
+            Console.WriteLine();
+
+            int gender;
+            while (!(int.TryParse(Console.ReadLine(), out gender) && gender < 4 && gender > 0))
+            {
+                Console.WriteLine("\n" + "Введите число от 1 до 3:" + "\n");
+            }
+            switch (gender)
+
+            {
+
+                case 1:
+
+                    Console.WriteLine("\n" + "Вы спокойно доживаете до старости и умираете, конец квеста");
+
+                    Console.WriteLine("\n" + "Кажется, вы бы хотели попробовать и другие уровни сложности, поэтому теперь вы играете за мужчину");
+
+                    goto case 2;
+
+                case 2:
+
+                    Console.WriteLine("\n" + "Вы обнаруживаете, что по пути в магазин за хлебом вам внезапно захотелось исчезнуть");
+
+                    Console.WriteLine("Спустя годы вы идете по улице, видите своего взрослого ребенка, выходящего в дорогой одежде из дорогого ресторана на другой стороне улицы");
+
+                    Console.WriteLine("Уведомить его о вашем существовании, подбежав к нему? Определитесь: бежать - 1, стоять - 2" + "\n");
+
+                    int run;
+                    while (!(int.TryParse(Console.ReadLine(), out run) && run < 3 && run > 0))
+                    {
+                        Console.WriteLine("\n" + "Введите либо 1, либо 2:" + "\n");
+                    }
+                    switch (run)
+
+                    {
+
+                        case 1:
+
+                            Console.WriteLine("\n" + "На третьей четверти дороги (на половине вы бы стояли посередине, ровно на вас бы никто не ехал) вы поняли, что это не ваш сын, зато ваш сейчас едет на вас на мусоровозке в состоянии алкогольного опьянения");
+
+                            Console.WriteLine("Конечно, вы не понимаете, что за рулем именно ваш сын, но судьба такова, что, бросив ребенка, вы ухудшили его жизнь, с которой потом он не справился");
+
+                            Console.WriteLine("Любое ваше действие будет карать Бог. Что будете пытаться сделать: отбежать влево - 1, отбежать вправо - 2, стоять на месте - 3, идти навстерчу - 4?" + "\n");
+
+                            int attempt;
+                            while (!(int.TryParse(Console.ReadLine(), out attempt) && attempt < 5 && attempt > 0))
+                            {
+                                Console.WriteLine("\n" + "Введите число от 1 до 4:" + "\n");
+                            }
+                            switch (attempt)
+
+                            {
+
+                                case 1:
+
+                                    Console.WriteLine("Налево пойдешь - коня потеряешь. Конская колбаса, которую вы ели на завтрак, оказалась просрочена");
+
+                                    Console.WriteLine("Вас убивает метеорит, конец квеста");
+                                    Console.WriteLine("Введите enter, чтобы начать сначала");
+                                    Console.ReadLine();
+                                    return true;
+
+                                case 2:
+
+                                    Console.WriteLine("Направо подйдешь - жизнь потеряешь. Справа от вас была встречная полоса дороги (там тоже едут машины)");
+                                    Console.WriteLine("Введите enter, чтобы начать сначала");
+                                    Console.ReadLine();
+                                    return true;
+
+                                case 3:
+
+                                    Console.WriteLine("Чуда не случилось");
+                                    Console.WriteLine("Введите enter, чтобы начать сначала");
+                                    Console.ReadLine();
+                                    return true;
+
+                                case 4:
+
+                                    Console.WriteLine("Водитель мусоровоза принял вызов... Оказалось, ему звонила мама, а вы показались ему кочкой");
+                                    Console.WriteLine("Введите enter, чтобы начать сначала");
+                                    Console.ReadLine();
+                                    return true;
+
+                                default:
+
+                                    Console.WriteLine("\n" + "Вы написали какую то фигню, пока стояли на дороге. В это время на вас ехала машина");
+
+                                    goto case 3;
+
+                            }
+
+                            return true;
+
+                        case 2:
+
+                            Console.WriteLine("\n" + "Вы подумали, и решили, что нужно еще подумать. Пока вы думали, ваш сын уехал. А как за хлебом, так вы бежать");
+
+                            Console.WriteLine("Внезапно по дороге проносится мусоровоз, слетает с полосы и врезается в столб, столб отлетает в вас...");
+                            Console.WriteLine("Введите enter, чтобы начать сначала");
+                            Console.ReadLine();
+                            return true;
+
+                        default:
+
+                            Console.WriteLine("Вы точно не определились, что делать. Зато как за хлебом, так сразу бежать");
+
+                            Console.WriteLine("Вдруг вы поняли на себе, почему Олег (879-912 гг.) - Вещий. Откуда в городе змеи? Да да, у вас даже никто не отсосал...");
+                            Console.WriteLine("Введите enter, чтобы начать сначала");
+                            Console.ReadLine();
+                            return true;
+
+                    }
+
+                    return true;
+
+                case 3:
+
+                    Console.WriteLine("\n" + "Чего вы хотите: родиться - 1, остаться в утробе - 2, пиццы - 3?" + "\n");
+
+                    int wish;
+                    while (!(int.TryParse(Console.ReadLine(), out wish) && wish < 4 && wish > 0))
+                    {
+                        Console.WriteLine("\n" + "Введите число от 1 до 3:" + "\n");
+                    }
+
+                    switch (wish)
+                    {
+
+                        case 1:
+
+                            Console.WriteLine("\n" + "Вы пытаетесь родиться, но акушер, принимающий ваши роды, потерял сознание и уронил вас");
+
+                            Console.WriteLine("Теперь вы, как линолеум, на предназначенном для вас месте, но растекшийся");
+                            Console.WriteLine("Введите enter, чтобы начать сначала");
+                            Console.ReadLine();
+                            return true;
+
+                        case 2:
+
+                            Console.WriteLine("\n" + "Внутри вы отдыхаете на диване, курите сигареты и играете в видео игры");
+
+                            Console.WriteLine("Внезапно вы выпадаете и оказываетесь в неприятном месте. Остается только громко кричать");
+
+                            Console.WriteLine("Вы уже умели ходить. Вы выходите из, как оказывается, палатки в лесу. Тут на вас бежит медведь");
+
+                            Console.WriteLine("\n" + "Что делать: обратно в палатку - 1, закричать на медведя - 2, попытаться убежать - 3" + "\n");
+
+                            int bear;
+                            while (!(int.TryParse(Console.ReadLine(), out bear) && bear < 4 && bear > 0))
+                            {
+                                Console.WriteLine("\n" + "Введите число от 1 до 3:" + "\n");
+                            }
+
+                            switch (bear)
+
+                            {
+
+                                case 1:
+
+                                    Console.WriteLine("Вы забегаете в палатку, спотыкаетесь о пуповину, сворачиваетесь колбаской");
+
+                                    Console.WriteLine("Медведь берет вас и продает на базаре");
+                                    Console.WriteLine("Введите enter, чтобы начать сначала");
+                                    Console.ReadLine();
+                                    return true;
+
+                                case 2:
+
+                                    Console.WriteLine("Медведь подходит к вам и говорит: зачем вы кричите на прохожих? Это не культурно");
+
+                                    Console.WriteLine("Вы с ним разговорились по душам до самой смерти");
+                                    Console.WriteLine("Введите enter, чтобы начать сначала");
+                                    Console.ReadLine();
+                                    return true;
+
+                                case 3:
+
+                                    Console.WriteLine("Очевидно, медведь догоняет вас. Настигнув вашу спину, ведведь касается ее и убегает со словами: теперь ты водишь");
+
+                                    Console.WriteLine("Ничего или бежать за медведем?");
+
+                                    string action = Console.ReadLine();
+
+                                    if (action == "бежать за медведем")
+
+                                    {
+
+                                        Console.WriteLine("Вы не догнали медведя и заблудились, вас нашли волки, вышедшие из цырка, принявшие вас в семью. Вы жили долго и счастливо");
+                                        Console.WriteLine("Введите enter, чтобы начать сначала");
+                                        Console.ReadLine();
+                                    }
+
+                                    else
+
+                                    {
+
+                                        Console.WriteLine("Ничего так ничего");
+                                        Console.WriteLine("Введите enter, чтобы начать сначала");
+                                        Console.ReadLine();
+                                    }
+
+                                    return true;
+
+                                default:
+
+                                    Console.WriteLine("\n" + "Стоять так стоять, до конца, до самой смерти. Медведь вас зауважал, отдал честь и убежал");
+
+                                    Console.WriteLine("Ваша мать пила, ну а вы топор");
+                                    Console.WriteLine("Введите enter, чтобы начать сначала");
+                                    Console.ReadLine();
+                                    return true;
+
+                            }
+
+                            return true;
+
+                        case 3:
+
+                            Console.WriteLine("\n" + "Я тоже хочу пиццы" + "\n");
+
+                            goto case 2;
+
+                        default:
+
+                            Console.WriteLine("Что бы вы не написали, вы остались");
+
+                            goto case 2;
+
+                    }
+
+                    return true;
+
+                default:
+
+                    Console.WriteLine("\n" + "Тогда выбор осуществится за вас, играйте за женщину");
+
+                    goto case 1;
+
+            }
+
+        }
+
+    }
+
+}
