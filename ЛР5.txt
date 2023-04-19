@@ -75,7 +75,7 @@ namespace ЛР5.Информатика
 
             }
 
-            averageGeometric = Math.Pow(product, 1.0 / 100.0);
+            averageGeometric = Math.Pow(product, 1 / 100.0);
 
             Console.WriteLine("\n" + $"Среднее геомметрическое случайных чисел равно {averageGeometric}" + "\n");
 
