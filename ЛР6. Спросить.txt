@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ЛР6
+{
+    internal class Program
+    {
+        int[] array = new int[10000];
+        static void FillArray()
+        {
+            Program arrayObject = new Program();
+            Random rnd = new Random();
+            arrayObject.array = new int[10000];
+            for (int i = 0; i < 10000; i++)
+            {
+                arrayObject.array[i] = rnd.Next(0, 9999);
+                int a = arrayObject.array[i];
+                if (i==0)
+                {
+                    Console.Write(a);
+                }
+                else
+                {
+                    Console.Write("\t" + a);
+                }
+            }
+        }
+        public static void FillArray<T>(int size, T value, System.Collections.Generic.Dictionary<int, T> array, T zeroValue);
+        public int[] SortArray(int[] array, int leftIndex, int rightIndex)
+        {
+            var i = leftIndex;
+            var j = rightIndex;
+            var pivot = array[leftIndex];
+            while (i <= j)
+            {
+                while (array[i] < pivot)
+                {
+                    i++;
+                }
+                while (array[j] > pivot)
+                {
+                    j--;
+                }
+                if (i <= j)
+                {
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                    i++;
+                    j--;
+                }
+            }
+            if (leftIndex < j)
+                SortArray(array, leftIndex, j);
+            if (i < rightIndex)
+                SortArray(array, i, rightIndex);
+            return array;
+        }
+        static void Main(string[] args)
+        {
+            DateTime start = DateTime.Now;
+            FillArray();
+            DateTime end = DateTime.Now;
+            Console.WriteLine("\n"+"Время формирование массива:"+"\n");
+            Console.WriteLine(end.Subtract(start));
+            Console.WriteLine(end - start);
+            SortArray(arrayObject.array);
+        }
+    }
+}
