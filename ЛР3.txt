@@ -24,19 +24,13 @@ namespace ЛР3
 
             double x;
 
-            while (!double.TryParse(Console.ReadLine(), out x))
+            while (!(double.TryParse(Console.ReadLine(), out x) && x>0))
 
             {
 
                 Console.WriteLine("\n" + "Вы ввели некорректные данные, повторите ввод: " + "\n");
 
             }
-
-            
-
-            if (x < 0)
-
-            {
                 double y = 1;
 
                 while (x > 1)
@@ -49,32 +43,11 @@ namespace ЛР3
 
                 }
                 Console.WriteLine("\n" + $"Факториал введенного числа равен {y}");
-                Console.WriteLine("\n" + "Факториала отрицательного числа не существует"+"\n");
-                Console.WriteLine("Нажмите enter, чтобы перейти к ряду Фибоначчи:" + "\n");
+                Console.WriteLine("\n" +"Нажмите enter, чтобы перейти к ряду Фибоначчи:" + "\n");
                 Console.ReadLine();
-            }
+         
 
-            else
 
-            {
-
-                double y = 1;
-
-                while (x > 1)
-
-                {
-
-                    y *= x;
-
-                    x--;
-
-                }
-                Console.WriteLine("\n" + $"Факториал введенного числа равен {y}");
-                Console.WriteLine("Нажмите enter, чтобы перейти к ряду Фибоначчи:" + "\n");
-                Console.ReadLine();
-            }
-
-            
             bool showMenu = true;
 
             while (showMenu)
@@ -103,9 +76,9 @@ namespace ЛР3
 
             Console.Write("\r\nВведите порядковый номер: ");
 
-            ulong g;
+            double g;
 
-            while (!ulong.TryParse(Console.ReadLine(), out g))
+            while (!double.TryParse(Console.ReadLine(), out g))
 
             {
 
@@ -155,21 +128,9 @@ namespace ЛР3
 
                 default:
 
-                    if (g > 84)
+                    
 
-                    {
-
-                        Console.Clear();
-
-                        Console.WriteLine($"Число {g} слишком велико и не охватывается типом данных, введите число до 84 включительно");
-
-                        Console.Write("\r\nНажмите enter, чтобы вернуться");
-
-                        Console.ReadLine();
-
-                    }
-
-                    else if (g < 0)
+                   if (g < 0)
 
                     {
 
@@ -188,13 +149,13 @@ namespace ЛР3
 
                         Console.Clear();
 
-                        ulong first = 1;
+                        double first = 1;
 
-                        ulong second = 1;
+                        double second = 1;
 
-                        ulong sum = 0;
+                        double sum = 0;
 
-                        ulong j = 2;
+                        double j = 2;
 
                         while (j <= g)
 
