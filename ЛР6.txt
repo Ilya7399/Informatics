@@ -12,15 +12,7 @@ namespace ЛР6
         int[] array = new int[arrayLength];
         static void Main(string[] args)
         {
-            Program arrayObject = new Program();
-            DateTime start = DateTime.Now;
-            Console.WriteLine(string.Join(", ", FillArray(arrayObject.array)));
-            DateTime end = DateTime.Now;
-            Console.WriteLine("\n" + $"Время формирования массива: {end - start}" + "\n");
-            DateTime startSort = DateTime.Now;
-            Console.WriteLine(string.Join(", ", QuickSort(arrayObject.array, 0, arrayLength - 1)));
-            DateTime endSort = DateTime.Now;
-            Console.WriteLine("\n" + $"Время сортировки массива: {endSort - startSort}" + "\n");
+            PrintArray();
         }
         static int[] FillArray(int[] array)
         {
@@ -58,6 +50,18 @@ namespace ЛР6
             QuickSort(array, minIndex, pivotIndex - 1);
             QuickSort(array, pivotIndex + 1, maxIndex);
             return array;
+        }
+        static void PrintArray()
+        {
+            Program arrayObject = new Program();
+            DateTime start = DateTime.Now;
+            Console.WriteLine(string.Join(", ", FillArray(arrayObject.array)));
+            DateTime end = DateTime.Now;
+            Console.WriteLine("\n" + $"Время формирования массива: {end - start}" + "\n");
+            DateTime startSort = DateTime.Now;
+            Console.WriteLine(string.Join(", ", QuickSort(arrayObject.array, 0, arrayLength - 1)));
+            DateTime endSort = DateTime.Now;
+            Console.WriteLine("\n" + $"Время сортировки массива: {endSort - startSort}" + "\n");
         }
     }
 }
