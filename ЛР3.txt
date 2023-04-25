@@ -1,7 +1,6 @@
 using System;
 
 using System.Collections.Generic;
-
 using System.Linq;
 
 using System.Text;
@@ -19,48 +18,48 @@ namespace ЛР3
         static void Main(string[] args)
 
         {
-
+            Fac();
+        }
+        private static void Fac()
+        {
+            Console.Clear();
             Console.WriteLine("Введите число, факториал которого вы бы хотели узнать: " + "\n");
 
             double x;
 
-            while (!(double.TryParse(Console.ReadLine(), out x) && x>0))
+            while (!(double.TryParse(Console.ReadLine(), out x) && x > 0))
 
             {
 
                 Console.WriteLine("\n" + "Вы ввели некорректные данные, повторите ввод: " + "\n");
 
             }
-                double y = 1;
+            double y = 1;
 
-                while (x > 1)
-
-                {
-
-                    y *= x;
-
-                    x--;
-
-                }
-                Console.WriteLine("\n" + $"Факториал введенного числа равен {y}");
-                Console.WriteLine("\n" +"Нажмите enter, чтобы перейти к ряду Фибоначчи:" + "\n");
-                Console.ReadLine();
-         
-
-
-            bool showMenu = true;
-
-            while (showMenu)
+            while (x > 1)
 
             {
 
-                showMenu = MainMenu();
+                y *= x;
+
+                x--;
 
             }
+            Console.WriteLine("\n" + $"Факториал введенного числа равен {y.ToString("F0")}" + "\n");
+            Console.WriteLine("Нажмите пробел, чтобы узнать факториал еще одного числа или enter, чтобы перейти к ряду Фибоначчи:" + "\n");
+            if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+            {
+                Fac();
 
+            }
+            else
+            {
+                MainMenu();
+
+            }
         }
 
-        private static bool MainMenu()
+        private static void MainMenu()
 
         {
 
@@ -73,9 +72,14 @@ namespace ЛР3
             Console.WriteLine("17)");
 
             Console.WriteLine("84)");
-
-            Console.Write("\r\nВведите порядковый номер: ");
-
+            Console.WriteLine("\nЕсли хиотите вернуться к нахождению факториалов, нажмите пробел");
+            Console.Write("\r\nИли введите порядковый номер, чтобы узнать, какое число стоит под этим элементом: ");
+            if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+            {
+                Fac();
+  
+            }
+            else {
             double g;
 
             while (!double.TryParse(Console.ReadLine(), out g))
@@ -86,7 +90,8 @@ namespace ЛР3
 
             }
 
-            switch (g)
+
+                switch (g)
 
             {
 
@@ -99,8 +104,8 @@ namespace ЛР3
                     Console.Write("\r\nНажмите enter, чтобы вернуться");
 
                     Console.ReadLine();
-
-                    return true;
+                        MainMenu();
+                        break;
 
                 case 17:
 
@@ -111,10 +116,10 @@ namespace ЛР3
                     Console.Write("\r\nНажмите enter, чтобы вернуться");
 
                     Console.ReadLine();
+                        MainMenu();
+                        break;
 
-                    return true;
-
-                case 84:
+                    case 84:
 
                     Console.Clear();
 
@@ -123,10 +128,10 @@ namespace ЛР3
                     Console.Write("\r\nНажмите enter, чтобы вернуться");
 
                     Console.ReadLine();
+                        MainMenu();
+                        break;
 
-                    return true;
-
-                default:
+                    default:
 
                     
 
@@ -141,8 +146,8 @@ namespace ЛР3
                         Console.Write("\r\nНажмите enter, чтобы вернуться");
 
                         Console.ReadLine();
-
-                    }
+                            MainMenu();
+                        }
 
                     else
                     {
@@ -170,17 +175,16 @@ namespace ЛР3
                             j++;
 
                         }
-
-                        Console.WriteLine($"Под номером {g} в ряде Фибоначчи стоит число {first}");
+                        Console.WriteLine($"Под номером {g} в ряде Фибоначчи стоит число {first.ToString("F0")}");
 
                         Console.Write("\r\nНажмите enter, чтобы вернуться");
 
                         Console.ReadLine();
+                            MainMenu();
+                        }
+                        break;
 
-                    }
-
-                    return true;
-
+                }
             }
 
         }
