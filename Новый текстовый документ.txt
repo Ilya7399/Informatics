@@ -1,0 +1,63 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Text;
+
+using System.Threading.Tasks;
+
+namespace ЛР4
+
+{
+
+    class Program
+
+    {
+
+        static void Main(string[] args)
+
+        {
+            
+            Console.WriteLine("Введите количество столбцов");
+            int h;
+            while (!(int.TryParse(Console.ReadLine(), out h) && h > 0))
+            {
+                Console.WriteLine("Повторите ввод");
+            }
+            int b = 0;
+            while (b<h) 
+            {
+                Console.WriteLine("Сначала введите количество элементов в строке");
+                int a;
+                while (!(int.TryParse(Console.ReadLine(), out a)&& a >0)) 
+                {
+                    Console.WriteLine("Повторите ввод");
+                }
+            
+                string line = Console.ReadLine();
+                string[] splitLine = line.Split(' ');
+                int i = 0;
+                int[] ads = new int[i];
+                do
+                {
+                    ads[i] = Convert.ToInt32(splitLine[i]);
+                    i++;
+                }
+                while (i < a);
+                b++;
+            }
+            
+            
+            
+            
+            
+            
+           
+            Console.ReadLine();
+        }
+
+    }
+
+}
