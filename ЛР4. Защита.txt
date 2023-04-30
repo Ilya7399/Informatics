@@ -14,7 +14,7 @@ namespace ЛР4.Защита3
             int row;
             while (!int.TryParse(Console.ReadLine(), out row))
             {
-                Console.WriteLine("\n"+"Вы ввели некорректные данные, повторите ввод:"+"\n");
+                Console.WriteLine("\n" + "Вы ввели некорректные данные, повторите ввод:" + "\n");
             }
             Console.WriteLine("\n" + "Введите количество столбцов матриц:" + "\n");
             int column;
@@ -23,32 +23,39 @@ namespace ЛР4.Защита3
                 Console.WriteLine("\n" + "Вы ввели некорректные данные, повторите ввод:" + "\n");
             }
             Console.WriteLine("\n" + "Элементы первой матрицы. Начните вводить элементы первой строки через пробел, а для перехода на следующую строку нажмите enter" + "\n");
-            int[,] firstArray = new int[row,column];
-            for (int i = 0; i<column;i++)
+            int[,] firstArray = new int[row, column];
+            for (int i = 0; i < row; i++)
             {
                 string line = Console.ReadLine();
                 string[] splitLine = line.Split(' ');
                 int[] value = new int[row];
-                for (int j = 0; j < row; j++)
+                for (int j = 0; j < column; j++)
                 {
-                    while (!int.TryParse(splitLine[i], out value[i]))
+                    while (!int.TryParse(splitLine[j], out value[j]))
                     {
                         break;
                     }
-                    firstArray[i,j] = value[i];
+                    firstArray[i, j] = value[j];
                 }
                 Console.WriteLine();
             }
-            for (int i = 0; i < column; i++)
+            for (int i = 0; i < row; i++)
             {
-                for (int j = 0; j < row; j++)
+                for (int j = 0; j < column; j++)
                 {
-                    Console.Write(firstArray[i, j]);
+                    if (j==0)
+                    {
+                        Console.Write("\n"+firstArray[i, j]);
+                    }
+                    else
+                    {
+                        Console.Write("\t"+firstArray[i, j]);
+                    }
                 }
             }
             Console.WriteLine("\n" + "Элементы второй матрицы. Начните вводить элементы первой строки через пробел, а для перехода на следующую строку нажмите enter" + "\n");
             int[,] secondArray = new int[row, column];
-            for (int i = 0; i < column; i++)
+            for (int i = 0; i < row; i++)
             {
                 string line = Console.ReadLine();
                 string[] splitLine = line.Split(' ');
@@ -74,7 +81,7 @@ namespace ЛР4.Защита3
             {
                 for (int j = 0; j < row; j++)
                 {
-                    Console.Write(firstArray[i, j] + secondArray[i,j]);
+                    Console.Write(firstArray[i, j] + secondArray[i, j]);
                 }
             }
         }
