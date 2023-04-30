@@ -47,6 +47,10 @@ namespace ЛР4.Защита3
                     {
                         Console.Write("\n"+firstArray[i, j]);
                     }
+                    else if (i == row-1&&j==column-1)
+                    {
+                        Console.Write("\t" + firstArray[i, j]+"\n");
+                    }
                     else
                     {
                         Console.Write("\t"+firstArray[i, j]);
@@ -77,6 +81,10 @@ namespace ЛР4.Защита3
                     if (j == 0)
                     {
                         Console.Write("\n" + secondArray[i, j]);
+                    }
+                    else if (i == row - 1 && j == column - 1)
+                    {
+                        Console.Write("\t" + secondArray[i, j] + "\n");
                     }
                     else
                     {
