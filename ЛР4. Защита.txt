@@ -10,9 +10,20 @@ namespace ЛР4.Защита3
     {
         static void Main(string[] args)
         {
-            int row = Convert.ToInt32(Console.ReadLine());
-            int column = Convert.ToInt32(Console.ReadLine());
-            int[,] array = new int[row,column];
+            Console.WriteLine("Введите количество строк матриц:" + "\n");
+            int row;
+            while (!int.TryParse(Console.ReadLine(), out row))
+            {
+                Console.WriteLine("\n"+"Вы ввели некорректные данные, повторите ввод:"+"\n");
+            }
+            Console.WriteLine("\n" + "Введите количество столбцов матриц:" + "\n");
+            int column;
+            while (!int.TryParse(Console.ReadLine(), out column))
+            {
+                Console.WriteLine("\n" + "Вы ввели некорректные данные, повторите ввод:" + "\n");
+            }
+            Console.WriteLine("\n" + "Начните вводить элементы первой строки через пробел, а для перехода на следующую строку нажмите enter" + "\n");
+            int[,] firstArray = new int[row,column];
             for (int i = 0; i<column;i++)
             {
                 string line = Console.ReadLine();
@@ -24,7 +35,7 @@ namespace ЛР4.Защита3
                     {
                         break;
                     }
-                    array[i,j] = value[i];
+                    firstArray[i,j] = value[i];
                 }
                 Console.WriteLine();
             }
@@ -32,11 +43,11 @@ namespace ЛР4.Защита3
             {
                 for (int j = 0; j < row; j++)
                 {
-                    Console.Write(array[i, j]);
+                    Console.Write(firstArray[i, j]);
                 }
             }
-            Console.WriteLine("Элементы второй матрицы");
-            int[,] array2 = new int[row, column];
+            Console.WriteLine("\n" + "Элементы второй матрицы. Начните вводить элементы первой строки через пробел, а для перехода на следующую строку нажмите enter" + "\n");
+            int[,] secondArray = new int[row, column];
             for (int i = 0; i < column; i++)
             {
                 string line = Console.ReadLine();
@@ -48,7 +59,7 @@ namespace ЛР4.Защита3
                     {
                         break;
                     }
-                    array2[i, j] = value[i];
+                    secondArray[i, j] = value[i];
                 }
                 Console.WriteLine();
             }
@@ -56,14 +67,14 @@ namespace ЛР4.Защита3
             {
                 for (int j = 0; j < row; j++)
                 {
-                    Console.Write(array[i, j]);
+                    Console.Write(secondArray[i, j]);
                 }
             }
             for (int i = 0; i < column; i++)
             {
                 for (int j = 0; j < row; j++)
                 {
-                    Console.Write(array[i, j] + array2[i,j]);
+                    Console.Write(firstArray[i, j] + secondArray[i,j]);
                 }
             }
         }
