@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ЛР4.Защита3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int row = Convert.ToInt32(Console.ReadLine());
+            int column = Convert.ToInt32(Console.ReadLine());
+            int[,] array = new int[row,column];
+            for (int i = 0; i<column;i++)
+            {
+                string line = Console.ReadLine();
+                string[] splitLine = line.Split(' ');
+                int[] value = new int[row];
+                for (int j = 0; j < row; j++)
+                {
+                    while (!int.TryParse(splitLine[i], out value[i]))
+                    {
+                        break;
+                    }
+                    array[i,j] = value[i];
+                }
+                Console.WriteLine();
+            }
+            for (int i = 0; i < column; i++)
+            {
+                for (int j = 0; j < row; j++)
+                {
+                    Console.Write(array[i, j]);
+                }
+            }
+            Console.WriteLine("Элементы второй матрицы");
+            int[,] array2 = new int[row, column];
+            for (int i = 0; i < column; i++)
+            {
+                string line = Console.ReadLine();
+                string[] splitLine = line.Split(' ');
+                int[] value = new int[row];
+                for (int j = 0; j < row; j++)
+                {
+                    while (!int.TryParse(splitLine[i], out value[i]))
+                    {
+                        break;
+                    }
+                    array2[i, j] = value[i];
+                }
+                Console.WriteLine();
+            }
+            for (int i = 0; i < column; i++)
+            {
+                for (int j = 0; j < row; j++)
+                {
+                    Console.Write(array[i, j]);
+                }
+            }
+            for (int i = 0; i < column; i++)
+            {
+                for (int j = 0; j < row; j++)
+                {
+                    Console.Write(array[i, j] + array2[i,j]);
+                }
+            }
+        }
+    }
+}
