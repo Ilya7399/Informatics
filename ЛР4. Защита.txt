@@ -60,28 +60,72 @@ namespace ЛР4.Защита3
                 string line = Console.ReadLine();
                 string[] splitLine = line.Split(' ');
                 int[] value = new int[row];
-                for (int j = 0; j < row; j++)
+                for (int j = 0; j < column; j++)
                 {
-                    while (!int.TryParse(splitLine[i], out value[i]))
+                    while (!int.TryParse(splitLine[j], out value[j]))
                     {
                         break;
                     }
-                    secondArray[i, j] = value[i];
+                    secondArray[i, j] = value[j];
                 }
                 Console.WriteLine();
             }
-            for (int i = 0; i < column; i++)
+            for (int i = 0; i < row; i++)
             {
-                for (int j = 0; j < row; j++)
+                for (int j = 0; j < column; j++)
                 {
-                    Console.Write(secondArray[i, j]);
+                    if (j == 0)
+                    {
+                        Console.Write("\n" + secondArray[i, j]);
+                    }
+                    else
+                    {
+                        Console.Write("\t" + secondArray[i, j]);
+                    }
                 }
             }
-            for (int i = 0; i < column; i++)
+            Console.WriteLine("\n"+"Сложить - 1, вычесть - 2"+"\n");
+            int operation;
+            while (!(int.TryParse(Console.ReadLine(), out operation)&&operation >0&&operation<3))
             {
-                for (int j = 0; j < row; j++)
+                Console.WriteLine("Выберите: 1 или 2");
+            }
+            if (operation == 1)
+            {
+                int[,] resultArray = new int[row, column];
+                for (int i = 0; i < row; i++)
                 {
-                    Console.Write(firstArray[i, j] + secondArray[i, j]);
+                    for (int j = 0; j < column; j++)
+                    {
+                        resultArray[i, j] = firstArray[i, j] + secondArray[i, j];
+                        if (j == 0)
+                        {
+                            Console.Write("\n" + resultArray[i, j]);
+                        }
+                        else
+                        {
+                            Console.Write("\t" + resultArray[i, j]);
+                        }
+                    }
+                }
+            }
+            else if (operation==2)
+            {
+                int[,] resultArray = new int[row, column];
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < column; j++)
+                    {
+                        resultArray[i, j] = firstArray[i, j] - secondArray[i, j];
+                        if (j == 0)
+                        {
+                            Console.Write("\n" + resultArray[i, j]);
+                        }
+                        else
+                        {
+                            Console.Write("\t" + resultArray[i, j]);
+                        }
+                    }
                 }
             }
         }
