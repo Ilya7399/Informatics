@@ -24,71 +24,149 @@ namespace ЛР4.Защита3
             }
             Console.WriteLine("\n" + "Элементы первой матрицы. Начните вводить элементы первой строки через пробел, а для перехода на следующую строку нажмите enter" + "\n");
             int[,] firstArray = new int[row, column];
-            for (int i = 0; i < row; i++)
+            if (row < column)
             {
-                string line = Console.ReadLine();
-                string[] splitLine = line.Split(' ');
-                int[] value = new int[row];
-                for (int j = 0; j < column; j++)
+                for (int i = 0; i < row; i++)
                 {
-                    while (!int.TryParse(splitLine[j], out value[j]))
+                    string line = Console.ReadLine();
+                    string[] splitLine = line.Split(' ');
+                    int[] value = new int[column];
+                    for (int j = 0; j < column; j++)
                     {
-                        break;
+                        while (!int.TryParse(splitLine[j], out value[j]))
+                        {
+                            break;
+                        }
+                        firstArray[i,j] = value[j];
                     }
-                    firstArray[i, j] = value[j];
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
-            }
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < column; j++)
+                for (int i = 0; i < row; i++)
                 {
-                    if (j==0)
+                    for (int j = 0; j < column; j++)
                     {
-                        Console.Write("\n"+firstArray[i, j]);
+                        if (j == 0)
+                        {
+                            Console.Write("\n" + firstArray[i,j]);
+                        }
+                        else if ((i == row - 1 && j == column - 1))
+                        {
+                            Console.Write("\t" + firstArray[i,j] + "\n");
+                        }
+                        else
+                        {
+                            Console.Write("\t" + firstArray[i, j]);
+                        }
                     }
-                    else if (i == row-1&&j==column-1)
+                }
+            }
+            else
+            {
+                for (int i = 0; i < row; i++)
+                {
+                    string line = Console.ReadLine();
+                    string[] splitLine = line.Split(' ');
+                    int[] value = new int[row];
+                    for (int j = 0; j < column; j++)
                     {
-                        Console.Write("\t" + firstArray[i, j]+"\n");
+                        while (!int.TryParse(splitLine[j], out value[j]))
+                        {
+                            break;
+                        }
+                        firstArray[i, j] = value[j];
                     }
-                    else
+                    Console.WriteLine();
+                }
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < column; j++)
                     {
-                        Console.Write("\t"+firstArray[i, j]);
+                        if (j == 0)
+                        {
+                            Console.Write("\n" + firstArray[i, j]);
+                        }
+                        else if ((i == row - 1 && j == column - 1))
+                        {
+                            Console.Write("\t" + firstArray[i, j] + "\n");
+                        }
+                        else
+                        {
+                            Console.Write("\t" + firstArray[i, j]);
+                        }
                     }
                 }
             }
             Console.WriteLine("\n" + "Элементы второй матрицы. Начните вводить элементы первой строки через пробел, а для перехода на следующую строку нажмите enter" + "\n");
             int[,] secondArray = new int[row, column];
-            for (int i = 0; i < row; i++)
+            if (row< column)
             {
-                string line = Console.ReadLine();
-                string[] splitLine = line.Split(' ');
-                int[] value = new int[row];
-                for (int j = 0; j < column; j++)
+                for (int i = 0; i < row; i++)
                 {
-                    while (!int.TryParse(splitLine[j], out value[j]))
+                    string line = Console.ReadLine();
+                    string[] splitLine = line.Split(' ');
+                    int[] value = new int[column];
+                    for (int j = 0; j < column; j++)
                     {
-                        break;
+                        while (!int.TryParse(splitLine[j], out value[j]))
+                        {
+                            break;
+                        }
+                        secondArray[i, j] = value[j];
                     }
-                    secondArray[i, j] = value[j];
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
-            }
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < column; j++)
+                for (int i = 0; i < row; i++)
                 {
-                    if (j == 0)
+                    for (int j = 0; j < column; j++)
                     {
-                        Console.Write("\n" + secondArray[i, j]);
+                        if (j == 0)
+                        {
+                            Console.Write("\n" + secondArray[i, j]);
+                        }
+                        else if ((i == row - 1 && j == column - 1))
+                        {
+                            Console.Write("\t" + secondArray[i, j] + "\n");
+                        }
+                        else
+                        {
+                            Console.Write("\t" + secondArray[i, j]);
+                        }
                     }
-                    else if (i == row - 1 && j == column - 1)
+                }
+            }
+            else
+            {
+                for (int i = 0; i < row; i++)
+                {
+                    string line = Console.ReadLine();
+                    string[] splitLine = line.Split(' ');
+                    int[] value = new int[row];
+                    for (int j = 0; j < column; j++)
                     {
-                        Console.Write("\t" + secondArray[i, j] + "\n");
+                        while (!int.TryParse(splitLine[j], out value[j]))
+                        {
+                            break;
+                        }
+                        secondArray[i, j] = value[j];
                     }
-                    else
+                    Console.WriteLine();
+                }
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < column; j++)
                     {
-                        Console.Write("\t" + secondArray[i, j]);
+                        if (j == 0)
+                        {
+                            Console.Write("\n" + secondArray[i, j]);
+                        }
+                        else if (i == row - 1 && j == column - 1)
+                        {
+                            Console.Write("\t" + secondArray[i, j] + "\n");
+                        }
+                        else
+                        {
+                            Console.Write("\t" + secondArray[i, j]);
+                        }
                     }
                 }
             }
