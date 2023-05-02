@@ -37,7 +37,7 @@ namespace ЛР4.Защита3
                         {
                             break;
                         }
-                        firstArray[i,j] = value[j];
+                        firstArray[i, j] = value[j];
                     }
                     Console.WriteLine();
                 }
@@ -47,11 +47,11 @@ namespace ЛР4.Защита3
                     {
                         if (j == 0)
                         {
-                            Console.Write("\n" + firstArray[i,j]);
+                            Console.Write("\n" + firstArray[i, j]);
                         }
                         else if ((i == row - 1 && j == column - 1))
                         {
-                            Console.Write("\t" + firstArray[i,j] + "\n");
+                            Console.Write("\t" + firstArray[i, j] + "\n");
                         }
                         else
                         {
@@ -98,7 +98,7 @@ namespace ЛР4.Защита3
             }
             Console.WriteLine("\n" + "Элементы второй матрицы. Начните вводить элементы первой строки через пробел, а для перехода на следующую строку нажмите enter" + "\n");
             int[,] secondArray = new int[row, column];
-            if (row< column)
+            if (row < column)
             {
                 for (int i = 0; i < row; i++)
                 {
@@ -170,11 +170,11 @@ namespace ЛР4.Защита3
                     }
                 }
             }
-            Console.WriteLine("\n"+"Сложить - 1, вычесть - 2"+"\n");
+            Console.WriteLine("\n" + "Сложить - 1, вычесть - 2" + "\n");
             int operation;
-            while (!(int.TryParse(Console.ReadLine(), out operation)&&operation >0&&operation<3))
+            while (!(int.TryParse(Console.ReadLine(), out operation) && operation > 0 && operation < 3))
             {
-                Console.WriteLine("Выберите: 1 или 2");
+                Console.WriteLine("\n" + "Выберите: 1 или 2" + "\n");
             }
             if (operation == 1)
             {
@@ -195,7 +195,7 @@ namespace ЛР4.Защита3
                     }
                 }
             }
-            else if (operation==2)
+            else if (operation == 2)
             {
                 int[,] resultArray = new int[row, column];
                 for (int i = 0; i < row; i++)
